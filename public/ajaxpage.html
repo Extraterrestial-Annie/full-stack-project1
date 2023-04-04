@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+        <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+        <title>Message with Ajax</title>
+    </head>
+    <body>
+        <form class="pure-form pure-form-aligned" method="post" action="/newmessage">
+            <fieldset>
+                <div class="pure-control-group">
+                    <label for="aligned-name">Name</label>
+                    <input name="name" type="text" id="aligned-name" placeholder="Name" required/>
+                </div>
+                <div class="pure-control-group">
+                    <label for="aligned-country">Country</label>
+                    <input name="country" type="text" id="aligned-country" placeholder="Country" required/>
+                </div>
+                <div class="pure-control-group">
+                    <label for="aligned-message">Message</label>
+                    <input name="message" type="text" id="aligned-message" placeholder="Your message here" required/>
+                </div>
+                <div class="pure-control-group">
+                    <label for="aligned-submit"> </label>
+                    <button type="button" class="pure-button pure-button-primary" id="aligned-submit" onclick="loadDoc()">Submit</button>
+                </div>
+            </fieldset>
+            </form>
+
+        <div id="demo">
+        </div>
+
+        <script>
+        function loadDoc() {
+            var form = document.querySelector('form');
+            console.log(form)
+            var data = new FormData(form);
+            const formDataObj = {};
+            data = [...data]
+            console.log(data)
+            data.forEach(x => (formDataObj[x[0]] = x[1]));
+            console.log(formDataObj)
+            const xhttp = new XMLHttpRequest();
+            xhttp.onload = function() {
+                document.getElementById("demo").innerHTML =
+                this.responseText;
+            }
+            xhttp.open("POST", "/ajaxmessage");
+            xhttp.setRequestHeader("Content-type", "application/json");
+            var stringdata = JSON.stringify(formDataObj)
+            xhttp.send(stringdata);
+        }
+        </script>
+    </body>
+</html>

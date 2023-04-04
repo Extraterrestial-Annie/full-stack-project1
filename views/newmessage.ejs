@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
+    <title><%= title %></title>
+  </head>
+  <body>
+    <form class="pure-form pure-form-aligned" method="post" action="/newmessage">
+        <fieldset>
+            <div class="pure-control-group">
+                <label for="aligned-name">Name</label>
+                <input name="name" type="text" id="aligned-name" placeholder="Name" required/>
+            </div>
+            <div class="pure-control-group">
+                <label for="aligned-country">Country</label>
+                <input name="country" type="text" id="aligned-country" placeholder="Country" required/>
+            </div>
+            <div class="pure-control-group">
+                <label for="aligned-message">Message</label>
+                <input name="message" type="text" id="aligned-message" placeholder="Your message here" required/>
+            </div>
+            <div class="pure-control-group">
+                <label for="aligned-submit"> </label>
+                <button type="submit" value="Submit" class="pure-button pure-button-primary" id="aligned-submit">Submit</button>
+            </div>
+        </fieldset>
+      </form>
+  </body>
+</html>

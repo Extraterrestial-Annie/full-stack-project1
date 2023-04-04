@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <link rel="stylesheet" href="stylesheets/style.css" type="text/css">
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div class="pure-g">
+      <div class="pure-u-23-24">
+        <h1>Welcome to <%= title %></h1>
+        <p class="h1desc">This is the guestbook I made for my gender reveal party, as a part of a javascript fullstack course for my studies</p>
+      </div>
+      <div class="pure-button-group" role="group" aria-label="Navigation">
+        <button  onclick="window.location='/newmessage';" class="pure-button">Add your message</button>
+        <button  onclick="window.location='/guestbook';" class="pure-button">View the guestbook</button>
+        <button  onclick="window.location='/ajaxmessage';" class="pure-button">Add your message with Ajax</button>
+      </div>
+      <div class="pure-u-23-24" id="main">
+        <p>I heard that I should now recognize at least these flags below. Do you?</p>
+        <div class="pure-u-1-24"></div>
+        <div class="pure-u-7-24" id="flag1">
+          <img src="images/Transgender_Pride_flag.svg.png" alt="Transgender flag">
+        </div>
+        <div class="pure-u-7-24" id="flag2">
+          <img src="images/Lesbian_Pride_Flag_2019.svg.png" alt="Lesbian flag (5 stripes)">
+        </div>
+        <div class="pure-u-7-24" id="flag3">
+          <img src="images/Gay_Pride_Flag.svg.png" alt="Pride flag">
+        </div>
+        <div class="pure-u-1-24"></div>
+      </div>
+    </div>
   </body>
 </html>
