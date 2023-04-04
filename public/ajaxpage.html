@@ -28,8 +28,7 @@
             </fieldset>
             </form>
 
-        <div id="demo">
-        </div>
+        <div id="bottom"></div>
 
         <script>
         function loadDoc() {
@@ -43,14 +42,42 @@
             console.log(formDataObj)
             const xhttp = new XMLHttpRequest();
             xhttp.onload = function() {
-                document.getElementById("demo").innerHTML =
-                this.responseText;
+                var ajaxObj = JSON.parse(this.responseText)
+                document.getElementById("bottom").innerHTML =
+                parseData(ajaxObj);
             }
             xhttp.open("POST", "/ajaxmessage");
             xhttp.setRequestHeader("Content-type", "application/json");
             var stringdata = JSON.stringify(formDataObj)
             xhttp.send(stringdata);
         }
+
+    function parseData(data){
+
+        var results = '<table class ="pure-table pure-table-striped"> ';
+        results +=
+        '<thead>'+
+        '<tr>'+
+            '<th>#</th>'+
+            '<th>Name</th>'+
+            '<th>Country</th>'+
+            '<th>Message</th>'+
+        '</tr>'+
+        '</thead>'+
+        '<tbody>';
+        for (var i=0; i < data.length; i++){
+            results +=
+            '<tr>'+
+            '<td>'+data[i].id+'</td>'+
+            '<td>'+data[i].username+'</td>'+
+            '<td>'+data[i].country+'</td>'+
+            '<td>'+data[i].message+'</td>'+
+            '</tr>';
+        }
+        results +=
+        '</tbody>'
+        return results;
+        };
         </script>
     </body>
 </html>
